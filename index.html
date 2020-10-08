@@ -4,7 +4,7 @@
     <link rel="stylesheet" href="style.css" type="text/css" media="screen" charset="utf-8">    
   </head>
   <body>
-    <div class="container" id="todo">
+    <div class="container" id="todoList">
       <p>
         <label for="new-task">Add Item</label>
         <input id="new-task" type="text">
@@ -13,18 +13,18 @@
       <h3>Todo</h3>
       <ul id="incomplete-tasks">
         <li>
-            <input type="checkbox">
-            <label></label>
-            <input type="text">
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
+          <input type="checkbox">
+          <label></label>
+          <input type="text">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
         </li>
         <li class="editMode">
-            <input type="checkbox">
-            <label></label>
-            <input type="text" value="Go Shopping">
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
+          <input type="checkbox">
+          <label></label>
+          <input type="text" value="Go Shopping">
+          <button class="edit">Edit</button>
+          <button class="delete">Delete</button>
         </li>
       </ul>
       <h3>Completed</h3>
@@ -37,20 +37,9 @@
           <button class="delete">Delete</button>
         </li>
       </ul>
+      <button id="saveAll" onclick="saveTodo()">Save</button>
     </div>
 
     <script type="text/javascript" src="control.js"></script>
-    <script>
-    // Check browser support
-    if (typeof(Storage) !== "undefined") {
-      // Store
-      localStorage.setItem("toDoList", document.getElementById("todo"));
-      // Retrieve
-      document.getElementById("todo").innerHTML = localStorage.getItem("toDoList");
-    } else {
-      document.getElementById("todo").innerHTML = "Sorry, your browser does not support Web Storage...";
-    }
-    </script>
-
   </body>
 </html>

@@ -123,7 +123,6 @@ addButton.addEventListener("click",ajaxRequest);
 
 
 var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
-	console.log("bind list item events");
 //select ListItems children
 	var checkBox=taskListItem.querySelector("input[type=checkbox]");
 	var editButton=taskListItem.querySelector("button.edit");
@@ -150,4 +149,16 @@ var bindTaskEvents=function(taskListItem,checkBoxEventHandler){
 	for (var i=0; i<completedTasksHolder.children.length;i++){
 	//bind events to list items chldren(tasksIncompleted)
 		bindTaskEvents(completedTasksHolder.children[i],taskIncomplete);
+	}
+
+	function saveTodo() {
+	  if (typeof(Storage) !== "undefined") {
+	    if (document.getElementById("todoList")) {
+	      localStorage.setItem("toDoList", document.getElementById("todoList"));
+	      document.getElementById("todoList").innerHTML = localStorage.toDoList;
+	    }
+	    document.getElementById("saveAll").innerHTML = "Vous avez bien sauvegarder votre To-Do liste !";
+	  } else {
+	    document.getElementById("todoList").innerHTML = "Oupsi une erreur est survenue...";
+	  }
 	}
